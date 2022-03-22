@@ -3,6 +3,7 @@ import Home from '../views/Home.vue'
 import SayHiFromMethod from '../views/SayHiFromMethod.vue'
 import SayHiFromVariable from '../views/SayHiFromVariable.vue'
 import FormInput from '../views/FormInput.vue'
+import ApplicationConfig from '../views/ApplicationConfig.vue'
 
 import ProvideLevelOne from '@/views/ProvideLevelOne'
 import ProvideLevelTwo from '@/components/ProvideLevelTwo'
@@ -18,8 +19,15 @@ import TwoWayBinding from '@/views/TwoWayBinding'
 import SayHiFromMixin from '@/views/SayHiFromMixin'
 import ShowCounter1 from '@/views/ShowCounter1'
 import ShowCounter2 from '@/views/ShowCounter2'
+import { createApp } from 'vue'
+
 
 const routes = [
+  {
+    path: '/application_config',
+    name: 'ApplicationConfig',
+    component: ApplicationConfig
+  },
   {
     path: '/show_counter_1',
     name: 'ShowCounter1',
@@ -117,4 +125,6 @@ const router = createRouter({
   routes
 })
 
+const app = createApp({})
+// 这里对api进行设置
 export default router
