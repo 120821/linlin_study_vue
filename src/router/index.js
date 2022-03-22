@@ -28,12 +28,8 @@ const routes = [
   },
   {
     path:'/blog',
-    name: 'blog',
+    name: 'Blog',
     component: Blog
-  },
-  {
-    path:'/blog/:id',
-    name:'/Blog'
   },
   {
     path: '/hello',
