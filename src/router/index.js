@@ -4,6 +4,8 @@ import SayHiFromMethod from '../views/SayHiFromMethod.vue'
 import SayHiFromVariable from '../views/SayHiFromVariable.vue'
 import FormInput from '../views/FormInput.vue'
 import ApplicationConfig from '../views/ApplicationConfig.vue'
+import Emit from '../views/Emit.vue'
+import Ref from '../views/Ref.vue'
 
 import ProvideLevelOne from '@/views/ProvideLevelOne'
 import ProvideLevelTwo from '@/components/ProvideLevelTwo'
@@ -23,6 +25,16 @@ import { createApp } from 'vue'
 
 
 const routes = [
+  {
+    path: '/ref',
+    name: '/Ref',
+    component: Ref
+  },
+  {
+    path: '/emit',
+    name: 'Emit',
+    component: Emit
+  },
   {
     path: '/application_config',
     name: 'ApplicationConfig',

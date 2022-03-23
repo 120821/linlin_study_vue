@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src='../node_modules/vue/dist/vue.js'></script>
+</head>
+<body>
+    <div id="app"></div>
+    <script>
+        var Son = {
+            template:`
+               <div>
+                    接收到父元素的值是:{{title}}
+                  <button @click="sendMsgToFather">向父组件传值</button>
+                  <hr/>
+
+               </div>
+            `,
+            props:["title"],
+            data:function(){
+                 return {
+                     xxx:true,
+                     text:"hello"
+                 }
+            },
+            methods:{
+                changexxx:function(){
+                    this.xxx = !this.xxx
+                },
+                sendMsgToFather:function(){
+                    // 将需要传的值作为$emit的第二个参数，该值将作为实参传给响应自定义事件的方法
+                    this.$emit('childToFather','这是子组件给父组件的消息')
+                }
+            }
+        }
+        //
+        var App = {
+            components:{
+                "son":Son,
+            },
+            template:`
+            <div>
+               注意：v-on:childToFather = 'showChildMsg是监听自定义事件childToFather<br/><br/>
+               <son :title='xxx' v-on:childToFather = 'showChildMsg'></son>
+               我是父组件的值：{{xxx}}
+            </div>
+            `,
+            data:function(){
+                return {xxx:"我是xxx数据"}
+            },
+            methods:{
+                showChildMsg(data){
+                    console.log(data)
+                    this.xxx = data;
+                }
+            }
+        }
+       new Vue({
+           el:"#app",
+           components:{
+              "app":App
+           },
+           template:"<app/>"
+       })
+    </script>
+</body>
+</html>
+
