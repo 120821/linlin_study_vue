@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        li {
+            color: deeppink;
+            float: left;
+            width: 20%;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<!--vue组件-->
+<div id="app">
+    <ul>
+        <game-item v-for="item in games" v-bind:game="item"></game-item>
+    </ul>
+    <ul>
+        <pen-item v-for="item in pens" v-bind:pen="item"></pen-item>
+    </ul>
+</div>
+
+
+<script>
+    Vue.component(
+        'game-item', {
+            props: ['game'],
+            template: '<li><h3>{{game.title}}</h3></li>'
+        });
+    Vue.component(
+        'pen-item', {
+            props: ['pen'],
+            template: '<li><h3>{{pen.title}}</h3></li>'
+        });
+    var app = new Vue({
+        el: '#app',
+        data: {
+            games: [
+                {title: '五子棋'},
+                {title: '荒野行动'},
+                {title: '战争机器人'},
+                {title: '绝地求生'},
+                {title: '英雄联盟'}
+            ],
+            pens: [
+                {title: '圆珠笔'},
+                {title: '签字笔'},
+                {title: '水彩笔'},
+                {title: '蜡笔'},
+                {title: '毛笔'}
+            ]
+        }
+    });
+</script>
+
+
+</body>
+</html>
