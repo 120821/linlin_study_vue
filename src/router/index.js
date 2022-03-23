@@ -7,6 +7,8 @@ import ApplicationConfig from '../views/ApplicationConfig.vue'
 import Emit from '../views/Emit.vue'
 import Ref from '../views/Ref.vue'
 
+import Weather from '../views/Weather.vue'
+
 import ProvideLevelOne from '@/views/ProvideLevelOne'
 import ProvideLevelTwo from '@/components/ProvideLevelTwo'
 import ProvideLevelThree from '@/components/ProvideLevelThree'
@@ -25,6 +27,11 @@ import { createApp } from 'vue'
 
 
 const routes = [
+  {
+    path: '/weather',
+    name: '/Weather',
+    component: Weather
+  },
   {
     path: '/ref',
     name: '/Ref',
