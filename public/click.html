@@ -1,0 +1,29 @@
+<script>
+  function OnEnter( field ) { if( field.value == field.defaultValue ) { field.value = ""; } }
+  function OnExit( field ) { if( field.value == "" ) { field.value = field.defaultValue; } }
+</script>
+<input type=text value="预设文字" onFocus=OnEnter(this) onBlur=OnExit(this)>
+<script>
+  function myFunction(){
+      var x=document.getElementById("fname");
+      x.value=x.value.toUpperCase();
+    }
+</script>
+
+<body>
+
+  输入你的名字: <input type="text" id="fname" onchange="myFunction()">
+  <p>当你离开输入框后，函数将被触发，将小写字母转为大写字母。</p>
+
+</body>
+Select下拉框onchange事件获取option的value值
+<select name="type" onchange="show_sub(this.options[this.options.selectedIndex].value)">
+  <option value="0">请选择主类别</option>
+  <option value="1">1</option>
+  <option value="2">2</option>
+</select>
+<script>
+  function show_sub(val){
+      alert(val);
+    }
+</script>
